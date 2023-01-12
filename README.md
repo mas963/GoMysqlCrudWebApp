@@ -14,7 +14,23 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 ```
+## Custom Connection String 
 
+```go
+func dbConn() (db *sql.DB) {
+	dbDriver := "mysql"
+	dbUser := "root"
+	dbName := "test"
+	dbPass := "root"
+	db, err := sql.Open(dbDriver, dbUser+":"+dbPass+"@/"+dbName)
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	return db
+}
+```
 
 ## Tech Stack
 
