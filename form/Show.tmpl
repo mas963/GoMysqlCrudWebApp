@@ -1,0 +1,17 @@
+{{ define "Show" }}
+  {{ template "Header" }}
+  <div class="container bg-info">
+  <main role="main" class="container">
+      <h1 class="mt-5">Personel Kullanıcı Bilgileri</h1>
+    </main>
+    <footer class="footer mt-3">
+        <div class="container">
+            <h2> Register {{ .Id }} </h2>
+            <h3>Name: {{ .Name }}</h3>
+            <h3>City:  {{ .City }}</p><br /> 
+            <a class="btn btn-primary" href="/edit?id={{ .Id }}">Edit</a></h3>
+        </div>
+    </footer>
+    </div>
+  {{ template "Footer" }}
+{{ end }}

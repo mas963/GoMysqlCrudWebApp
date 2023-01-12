@@ -1,0 +1,37 @@
+{{ define "Index" }}
+  {{ template "Header" }}
+    <main role="main" class="container">
+      <h1 class="mt-5">Personel Listeleme Sayfası</h1>
+      <p class="lead">Eklenmiş olan tüm personelleri bu sayfadan görebilirsiniz.</p>
+      <a href="/new" class="btn btn-primary">Personel Create</a>
+    </main>
+    <footer class="footer mt-3">
+      <div class="container">
+    <table border="1" class="table table-striped">
+      <thead>
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>City</td>
+        <td>View</td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+       </thead>
+       <tbody>
+    {{ range . }}
+      <tr>
+        <td>{{ .Id }}</td>
+        <td> {{ .Name }} </td>
+        <td>{{ .City }} </td> 
+        <td><a href="/show?id={{ .Id }}">View</a></td>
+        <td><a href="/edit?id={{ .Id }}">Edit</a></td>
+        <td><a href="/delete?id={{ .Id }}">Delete</a><td>
+      </tr>
+    {{ end }}
+       </tbody>
+    </table>
+    </div>
+    </footer>
+  {{ template "Footer" }}
+{{ end }}
