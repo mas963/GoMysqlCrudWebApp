@@ -159,5 +159,8 @@ func main() {
 	http.HandleFunc("/edit", Edit)
 	http.HandleFunc("/update", Update)
 	http.HandleFunc("/delete", Delete)
-	http.ListenAndServe(":8080", nil)
+	if err := http.ListenAndServe(":8080", nil); err != nil {
+		panic(err)
+	}
+	// http.ListenAndServe(":8080", nil)
 }
